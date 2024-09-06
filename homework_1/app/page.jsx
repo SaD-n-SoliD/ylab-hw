@@ -3,6 +3,9 @@
 import { Header } from "@/components/header";
 import { LoginForm } from "@/components/loginForm";
 
+import { UIError } from "./UIkit/UIError";
+import { UIAccount } from "./UIkit/UIAccount";
+
 import { fetchApi, mockFetchApi } from '@/service/fetchApi'
 import { logger } from '@/utils/logger'
 
@@ -36,22 +39,10 @@ export default function Home() {
 	return (
 		<>
 			<Header className="p-20">
-				{error && (error?.name !== 'noSuchUser') &&
-					<div className="text_lil-title red">
-						{'Упс:( Что-то пошло не так'}
-					</div>
-				}
+				{/* Если ошибка, но не 'noSuchUser', то вероятнее всего это HTTP ошибка. Не тема этого дз, поэтому тут затычка с простеньким UI компонентом */}
+				{error && (error?.name !== 'noSuchUser') && <UIError error={error} />}
 				{isLoading && <div>Loading...</div>}
-				{fetchedUserData &&
-					<>
-						<div className="text_lil-title mb-20">
-							Вы вошли! Смотрите данные в консоли
-						</div>
-						<button className="btn" onClick={logout}>
-							Выйти
-						</button>
-					</>
-				}
+				{fetchedUserData && <UIAccount data={fetchedUserData} logout={logout} />}
 			</Header>
 			<main className="main">
 				{!fetchedUserData &&
