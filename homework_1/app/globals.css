@@ -16,9 +16,8 @@
 	padding-top: var(--header-height);
 }
 
-.violet-border {
+.border_violet {
 	border: 3px solid var(--violet);
-	border-radius: 5px;
 }
 
 .btn {
