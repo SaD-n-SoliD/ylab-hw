@@ -1,5 +1,6 @@
 
 import './loginForm.css'
+import { LoginError } from './loginError'
 
 export function LoginForm({ onSubmit, error }) {
 
@@ -17,7 +18,7 @@ export function LoginForm({ onSubmit, error }) {
 				<input className="login-form__field" id="password" name="password" type="password" required />
 
 				{error?.name === 'noSuchUser' &&
-					<div className="input-error red">{error.message}</div>
+					<LoginError error={error} className='blink_red' />
 				}
 				<button className="login-form__btn btn" type="submit" >Войти</button>
 			</form>

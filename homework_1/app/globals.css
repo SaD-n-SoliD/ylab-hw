@@ -67,12 +67,12 @@
 	color: #0c0;
 }
 
-.blink.red {
+.blink_red {
 	animation: blink_red 0.2s linear;
 	animation-iteration-count: 3;
 }
 
-.blink.green {
+.blink_green {
 	animation: blink_green 0.2s linear;
 	animation-iteration-count: 1;
 }
