@@ -1,5 +1,5 @@
 
-export { mockFetchApi } from "../mock/fetchApi"
+export { mockFetchApi } from "./mock/fetchApi"
 
 const defaultFetchConfig = {
 	method: "POST",

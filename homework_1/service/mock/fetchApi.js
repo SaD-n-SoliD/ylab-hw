@@ -7,7 +7,7 @@ export function mockFetchApi(url, req) {
 
 	return new Promise((resolve, reject) => {
 
-		if (url !== endpoint) reject('404 Not Found')
+		if (url !== endpoint) reject({ name: '404', message: '404 Not Found' })
 
 		// FormData
 		const reqData = {}, formData = req?.body
@@ -22,7 +22,7 @@ export function mockFetchApi(url, req) {
 				user.password === password
 			)
 
-		if (!user?.id) reject('Неверный логин или пароль')
+		if (!user?.id) reject({ name: 'noSuchUser', message: 'Неверный логин или пароль' })
 
 		const userData = data.find(({ uid }) => uid === user.id)
 
